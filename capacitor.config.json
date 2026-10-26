@@ -1,0 +1,8 @@
+{
+  "appId": "com.slipbook.app",
+  "appName": "Slipbook",
+  "webDir": "www",
+  "android": {
+    "backgroundColor": "#161513"
+  }
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Slipbook</title>
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M7 3h18v26l-3-2-3 2-3-2-3 2-3-2-3 2z" />
+        <path d="M11 10h10M11 15h10M11 20h6" class="lines" />
+      </svg>
+      <span>Slipbook</span>
+    </div>
+    <div class="topbar-right">
+      <nav class="tabs" role="tablist" aria-label="화면">
+        <button role="tab" data-tab="shopping">장보기</button>
+        <button role="tab" data-tab="ledger">가계부</button>
+        <button role="tab" data-tab="prices">물가</button>
+      </nav>
+      <button class="icon-btn" data-act="settings" aria-label="설정">⚙</button>
+    </div>
+  </header>
+
+  <main id="view" aria-live="polite"></main>
+
+  <dialog id="modal"><div class="modal-body" id="modal-body"></div></dialog>
+  <div id="toast" role="status"></div>
+  <input type="file" id="camera-input" accept="image/*" capture="environment" hidden>
+  <input type="file" id="file-input" accept="image/*" hidden>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

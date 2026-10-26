@@ -1,0 +1,6 @@
+node_modules/
+# esbuild 번들 결과물 (npm run build 로 다시 만든다)
+www/app.js
+*.log
+.DS_Store
+Thumbs.db
