@@ -125,3 +125,20 @@ export function restockSuggestions(summaries, openListNames, limit = 6) {
       lastPrice: s.last.price,
     }));
 }
+
+/**
+ * 장보기 빠른 추가: 자주 산 품목 (산 날이 많은 순, 같으면 최근에 산 순).
+ * 이미 목록에 있는 품목도 남겨 두고 담긴 수량을 붙인다 (누르면 수량이 는다).
+ */
+export function frequentProducts(summaries, openItems, limit = 12) {
+  return summaries
+    .filter((s) => !NON_GROCERY.has(s.category))
+    .sort((a, b) => b.purchaseDays - a.purchaseDays || b.last.date.localeCompare(a.last.date))
+    .slice(0, limit)
+    .map((s) => ({
+      product: s.product,
+      quantity: openItems
+        .filter((i) => matchProduct(i.name, [s]))
+        .reduce((n, i) => n + i.quantity, 0),
+    }));
+}

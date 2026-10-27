@@ -283,6 +283,17 @@ label.field { display: grid; gap: 4px; font-size: 13px; color: var(--muted); }
 .add-form { display: grid; grid-template-columns: minmax(0, 1fr) 72px auto; gap: 8px; margin-bottom: 14px; }
 .add-form input { padding: 10px 12px; background: var(--surface); }
 
+.quick-add { display: flex; flex-wrap: wrap; gap: 6px; margin: -4px 0 14px; }
+.quick-chip {
+  display: inline-flex; align-items: center; gap: 4px; max-width: 100%;
+  padding: 6px 12px; border: 1px solid var(--border); border-radius: 999px;
+  background: var(--surface-2); color: var(--text); font: inherit; font-size: 14px; cursor: pointer;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.quick-chip:active { transform: scale(0.97); }
+.quick-chip.on { border-color: var(--accent); background: var(--accent-soft); }
+.quick-chip .num { color: var(--accent); font-weight: 700; }
+
 .check-item { display: grid; grid-template-columns: auto minmax(0, 1fr) auto auto; align-items: center; gap: 12px; padding: 10px 4px; border-bottom: 1px solid var(--border); }
 .check-item:last-child { border-bottom: 0; }
 .check-item input[type="checkbox"] { width: 20px; height: 20px; accent-color: var(--accent); cursor: pointer; }

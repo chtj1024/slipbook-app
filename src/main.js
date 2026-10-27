@@ -651,6 +651,18 @@ async function renderShopping() {
         </form>
         <datalist id="shop-products">${data.productNames.map((p) => `<option value="${esc(p)}">`).join("")}</datalist>
         ${
+          data.frequent.length
+            ? `<div class="quick-add" role="group" aria-label="자주 산 품목 빠른 추가">${data.frequent
+                .map(
+                  (f) => `
+              <button class="quick-chip ${f.quantity ? "on" : ""}" data-act="add-to-list" data-name="${esc(f.product)}">
+                ${esc(f.product)}${f.quantity ? ` <span class="num">×${f.quantity}</span>` : ""}
+              </button>`,
+                )
+                .join("")}</div>`
+            : ""
+        }
+        ${
           data.items.length === 0
             ? `<div class="empty"><strong>목록이 비어 있어요</strong>살 것을 적어 두면 영수증을 저장할 때 산 품목이 자동으로 체크돼요.</div>`
             : `

@@ -11,6 +11,7 @@ import {
   matchProduct,
   itemMatchesListName,
   restockSuggestions,
+  frequentProducts,
 } from "./insights.js";
 
 class HttpError extends Error {}
@@ -212,6 +213,7 @@ function shoppingView() {
     estimate: open.reduce((s, i) => s + (i.price ? i.price.last.price * i.quantity : 0), 0),
     unpriced: open.filter((i) => !i.price).length,
     suggestions: restockSuggestions(summaries, open.map((i) => i.name)),
+    frequent: frequentProducts(summaries, open),
     productNames: summaries.map((s) => s.product).sort((a, b) => a.localeCompare(b, "ko")),
   };
 }
